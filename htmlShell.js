@@ -381,7 +381,7 @@ const htmlShell = {
 			var tarNo = retEl.childElementCount - 1;
 			return document.getElementById(nameList[1] + "-" + tarNo);
 		} else {
-			return document.getElementById(elName);
+			return document.querySelector(elName);
 		}
 	},
 	changeId: function (doc, pageNo) {
@@ -474,15 +474,27 @@ const htmlShell = {
 				}
 				var targetEl = htmlShell.getElement(nowAction.substring(nowAction.indexOf('_', 1) + 1), tarEl);
 				if (targetEl != null) {
-					targetEl.lastElementChild.addEventListener("transitionend", function (e) {
+					if (htmlShell.hasTransition(targetEl.lastElementChild)) {
+						targetEl.lastElementChild.addEventListener("transitionend", function (e) {
+							targetEl.lastElementChild.remove();
+							for (var i = 0; i < targetEl.children.length; i++) {
+								if (i >= targetEl.children.length - 1) {
+									targetEl.children[i].classList.remove(htmlShell.config.hiddenClass);
+								} else {
+									targetEl.children[i].classList.add(htmlShell.config.hiddenClass);
+								}
+							}
+						});
+						targetEl.lastElementChild.classList.add(htmlShell.config.fadeoutClass);
+
+					} else {
 						targetEl.lastElementChild.remove();
-					});
-					targetEl.lastElementChild.remove();
-					for (var i = 0; i < targetEl.children.length; i++) {
-						if (i >= targetEl.children.length - 1) {
-							targetEl.children[i].classList.remove(htmlShell.config.hiddenClass);
-						} else {
-							targetEl.children[i].classList.add(htmlShell.config.hiddenClass);
+						for (var i = 0; i < targetEl.children.length; i++) {
+							if (i >= targetEl.children.length - 1) {
+								targetEl.children[i].classList.remove(htmlShell.config.hiddenClass);
+							} else {
+								targetEl.children[i].classList.add(htmlShell.config.hiddenClass);
+							}
 						}
 					}
 				}

@@ -6,12 +6,14 @@
     <title>リスト／テーブル内更新</title>
 </head>
 
-<body data-element="table>tbody>*">
+<body>
     <table>
+        <!-- data-bodyを付けたところをbodyと見なして、その子を操作対象エレメントとします -->
         <tbody data-body="">
             <tr>
                 <td><input name="add_name" type="text"></td>
                 <td><input name="add_age" type="number"></td>
+                <!-- クリックするとこのtrを読み込んだ内容と置き換えます -->
                 <td><button data-url="sampleListEditAddAccept.html" data-target="_change_!closest>tr">追加</button></td>
             </tr>
         </tbody>
