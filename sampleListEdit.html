@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>リスト／テーブル内更新</title>
+</head>
+
+<body>
+    <h1>リスト／テーブル内更新</h1>
+    <button data-url="sampleListEditAdd.html" data-target="_addElement_!next>tbody"><span
+            class="material-symbols-outlined">add</span>新規追加</button>
+    <table>
+        <thead>
+            <tr>
+                <th>名前</th>
+                <th>年齢</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>山田太郎</td>
+                <td>30</td>
+                <td><button data-event="_remove_!closest>tr">削除</button></td>
+            </tr>
+            <tr>
+                <td>佐藤花子</td>
+                <td>25</td>
+                <td><button data-event="_remove_!closest>tr">削除</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button data-event="_remove_!parent">閉じる</button>
+</body>
+
+</html>

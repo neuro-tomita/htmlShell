@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>トグル／クラス操作 UI</title>
+</head>
+
+<body>
+    <h1>トグル／クラス操作 UI</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>名前</th>
+                <th>年齢</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-event="_toggleClass_!_active">
+                <td>山田太郎</td>
+                <td>30</td>
+                <td><button data-event="_remove_!closest>tr">削除</button></td>
+            </tr>
+            <tr data-event="_toggleClass_!_active">
+                <td>佐藤花子</td>
+                <td>25</td>
+                <td><button data-event="_remove_!closest>tr">削除</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button data-event="_remove_!parent">閉じる</button>
+</body>
+
+</html>

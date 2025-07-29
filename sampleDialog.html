@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>モーダルダイアログ表示</title>
+</head>
+
+<body>
+    <h1>モーダルダイアログ表示</h1>
+    <button data-event="_show_!next"><span class="material-symbols-outlined">open_in_new</span>ダイアログ表示</button>
+    <div id="next" class="hidden panel">
+        <h2>ダイアログ</h2>
+        <p>ここにダイアログの内容が入ります。</p>
+        <button data-event="_hidden_!parent">閉じる</button>
+    </div>
+    <button data-event="_remove_!parent">閉じる</button>
+</body>
+
+</html>
