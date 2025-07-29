@@ -640,9 +640,13 @@ const htmlShell = {
 		if (htmlShell.config.requestMethod == "GET") {
 			reqObj = {
 				method: "GET",
+				headers: {
+					"Content-type": "application/x-www-form-urlencoded",
+					"Cache-Control": "no-cache"
+				},
 				signal: controller.signal
 			}
-			url += '?' + new URLSearchParams(params).toString();
+			url += '?' + new URLSearchParams(functions.params).toString();
 		} else if (htmlShell.config.requestMethod == "POST") {
 			reqObj = {
 				method: "POST",
