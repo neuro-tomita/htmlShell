@@ -136,7 +136,7 @@ const htmlShell = {
 						params.append(thisEl.name || 'file-' + i, thisEl.files[i]);
 					}
 					fetch(url, {
-						method: "GET",
+						method: "POST",
 						body: params,
 					})
 						.then(res => res.text())
