@@ -13,6 +13,7 @@ const htmlShell = {
 		dialogBgID: "dialog_bg",
 		hiddenClass: "hidden",
 		fadeoutClass: "fadeOut",
+		requestMethod: "POST",
 	},
 	requestBefore: [],
 	requestAfter: [],
@@ -135,10 +136,20 @@ const htmlShell = {
 					for (let i = 0; i < thisEl.files.length; i++) {
 						params.append(thisEl.name || 'file-' + i, thisEl.files[i]);
 					}
-					fetch(url, {
-						method: "POST",
-						body: params,
-					})
+
+					let reqObj;
+					if (htmlShell.config.requestMethod == "GET") {
+						reqObj = {
+							method: "GET",
+						}
+						url += '?' + new URLSearchParams(params).toString();
+					} else if (htmlShell.config.requestMethod == "POST") {
+						reqObj = {
+							method: "POST",
+							body: params,
+						}
+					}
+					fetch(url, reqObj)
 						.then(res => res.text())
 						.then(html => {
 							var xhrContener = {};
@@ -625,15 +636,27 @@ const htmlShell = {
 			functions.before(null); // fetchはxhrオブジェクトが無いのでnull
 		}
 
-		fetch(url, {
-			method: "POST",
-			headers: {
-				"Content-type": "application/x-www-form-urlencoded",
-				"Cache-Control": "no-cache"
-			},
-			body: sendText,
-			signal: controller.signal
-		})
+		let reqObj;
+		if (htmlShell.config.requestMethod == "GET") {
+			reqObj = {
+				method: "GET",
+				signal: controller.signal
+			}
+			url += '?' + new URLSearchParams(params).toString();
+		} else if (htmlShell.config.requestMethod == "POST") {
+			reqObj = {
+				method: "POST",
+				body: sendText,
+				headers: {
+					"Content-type": "application/x-www-form-urlencoded",
+					"Cache-Control": "no-cache"
+				},
+				signal: controller.signal
+			}
+		}
+
+
+		fetch(url, reqObj)
 			.then(response => {
 				clearTimeout(timeoutId);
 				if (loadingTimeout != null) clearTimeout(loadingTimeout);
