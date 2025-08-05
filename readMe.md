@@ -23,7 +23,7 @@ HTMLに挙動を記述して「構造と状態の宣言的プログラム」に�
 ## クイックスタート
 ```html:button.html
 <!-- ボタンを押すと、detail.htmlを取得して、ボタン自身（!）を置き換える -->
-<button data-url="detail.html" data-target="!" data-event="">
+<button data-url="detail.html" data-target="_change_!" data-event="">
 	詳細を表示
 </button>
 ```
@@ -125,7 +125,8 @@ htmlShell.targetHooks.push((target, el, params, event) => {
 });
 ```
 ## 更新履歴
-**2019‑06**: v0.0.1 リリース(社内ツールとして開発開始)
-**2025‑07‑22**: v0.1.0 リリース
+* **2015**: 社内ツールとして開発開始
+* **2019/06-** vanilaJsとして再構築
+* **2025‑07‑22**: v0.1.0 リリース
 
 
