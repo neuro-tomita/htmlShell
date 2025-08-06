@@ -30,6 +30,7 @@ HTMLに挙動を記述して「構造と状態の宣言的プログラム」に�
 1. `htmlShell.js` を読み込み、`DOMContentLoaded` 後に初期化
 1. ボタン押下 → リクエスト → HTML取得 → `data-target="!"` によってボタン自身が置き換えられます
 
+https://neuro-tomita.github.io/htmlShell/
 
 ## 想定してる使い方
 * ブラウザベースの小規模ツール/社内アプリ/中小規模の業務アプリ
