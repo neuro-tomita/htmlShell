@@ -131,3 +131,4 @@ htmlShell.targetHooks.push((target, el, params, event) => {
 * **2025‑07‑22**: v0.1.0 リリース
 
 
+あああああ
