@@ -129,5 +129,4 @@ htmlShell.targetHooks.push((target, el, params, event) => {
 * **2015**: 社内ツールとして開発開始
 * **2019/06-** vanilaJsとして再構築
 * **2025‑07‑22**: v0.1.0 リリース
-
-
+aaa
